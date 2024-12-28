@@ -1,0 +1,93 @@
+Correct Sentences
+================================================================================================
+?- parse_sentence([he, carefully, reads, a, book, about, paris]).
+Possible parsing versions:
+s(p(he),vp(adv(carefully),v(reads),np(np(det(a),n(book)),pp(prep(about),n(paris)))))
+s(p(he),vp(vp(adv(carefully),v(reads),np(det(a),n(book))),pp(prep(about),n(paris))))
+
+?- parse_sentence([the,beautiful, butterfly, flies, to,the, girl]).
+Possible parsing versions:
+s(ap(det(the),ap(adj(beautiful),n(butterfly))),vp(v(flies),pp(prep(to),np(det(the),n(girl)))))
+
+?- parse_sentence([the, girl, loves, the, boy]).
+Possible parsing versions:
+s(np(det(the),n(girl)),vp(v(loves),np(det(the),n(boy))))
+
+?- parse_sentence([i, love, his, cool, laptop]).
+Possible parsing versions:
+s(p(i),vp(v(love),ap(det(his),ap(adj(cool),n(laptop)))))
+
+?- parse_sentence([i, love, his, cool, laptops]).
+Possible parsing versions:
+s(p(i),vp(v(love),ap(det(his),ap(adj(cool),n(laptops)))))
+true 
+
+?- parse_sentence([the, wind, blows, from, the, east]).
+Possible parsing versions:
+s(np(det(the),n(wind)),vp(v(blows),pp(prep(from),np(det(the),n(east)))))
+
+?- parse_sentence([the, cool, wind, blows, from, the, east]).
+Possible parsing versions:
+s(ap(det(the),ap(adj(cool),n(wind))),vp(v(blows),pp(prep(from),np(det(the),n(east)))))
+
+?- parse_sentence([a, little, boy, plays, with, a, dog, in, the, garden, for, a, long, time]). 
+Possible parsing versions:
+s(ap(det(a),ap(adj(little),n(boy))),vp(v(plays),vp(vp(pp(prep(for),ap(det(a),ap(adj(long),n(time)))),pp(prep(in),np(det(the),n(garden)))),pp(prep(with),np(det(a),n(dog))))))
+s(ap(det(a),ap(adj(little),n(boy))),vp(v(plays),vp(pp(prep(in),np(np(det(the),n(garden)),pp(prep(for),ap(det(a),ap(adj(long),n(time)))))),pp(prep(with),np(det(a),n(dog))))))
+s(ap(det(a),ap(adj(little),n(boy))),vp(v(plays),vp(pp(prep(for),ap(det(a),ap(adj(long),n(time)))),pp(prep(with),np(np(det(a),n(dog)),pp(prep(in),np(det(the),n(garden))))))))
+s(ap(det(a),ap(adj(little),n(boy))),vp(v(plays),pp(prep(with),np(np(det(a),n(dog)),np(pp(prep(in),np(det(the),n(garden))),pp(prep(for),ap(det(a),ap(adj(long),n(time)))))))))
+s(ap(det(a),ap(adj(little),n(boy))),vp(v(plays),pp(prep(with),np(np(det(a),n(dog)),pp(prep(in),np(np(det(the),n(garden)),pp(prep(for),ap(det(a),ap(adj(long),n(time))))))))))
+
+?- parse_sentence([a, little, boy, always, plays, with, a, black, alive, dog, in, the, green, light ,garden, for, a, long, time]).
+Possible parsing versions:
+s(np(ap(det(a),adj(little)),n(boy)),vp(adv(always),v(plays),vp(pp(prep(with),np(ap(det(a),ap(adj(black),adj(alive))),n(dog),np(pp(prep(in),np(ap(det(the),ap(adj(green),adj(light))),n(garden))),pp(prep(for),np(ap(det(a),adj(long)),n(time)))))))))
+s(np(ap(det(a),adj(little)),n(boy)),vp(adv(always),v(plays),vp(pp(prep(with),np(ap(det(a),ap(adj(black),adj(alive))),n(dog),pp(prep(in),np(ap(det(the),ap(adj(green),adj(light))),n(garden),pp(prep(for),np(ap(det(a),adj(long)),n(time))))))))))
+s(np(ap(det(a),adj(little)),n(boy)),vp(adv(always),v(plays),vp(pp(prep(with),np(ap(det(a),ap(adj(black),adj(alive))),n(dog))),vp(pp(prep(in),np(ap(det(the),ap(adj(green),adj(light))),n(garden),pp(prep(for),np(ap(det(a),adj(long)),n(time)))))))))
+s(np(ap(det(a),adj(little)),n(boy)),vp(adv(always),v(plays),vp(pp(prep(with),np(ap(det(a),ap(adj(black),adj(alive))),n(dog))),vp(pp(prep(in),np(ap(det(the),ap(adj(green),adj(light))),n(garden))),vp(pp(prep(for),np(ap(det(a),adj(long)),n(time))))))))
+s(np(ap(det(a),adj(little)),n(boy)),vp(adv(always),v(plays),vp(pp(prep(with),np(ap(det(a),ap(adj(black),adj(alive))),n(dog),pp(prep(in),np(ap(det(the),ap(adj(green),adj(light))),n(garden))))),vp(pp(prep(for),np(ap(det(a),adj(long)),n(time)))))))
+
+?- parse_sentence([the, very, beautiful, girl, always, reads,the, heavy, book, in, a,  light, green, house]).
+Possible parsing versions:
+s(np(ap(det(the),adv(very),adj(beautiful)),n(girl)),vp(adv(always),v(reads),vp(np(ap(det(the),adj(heavy)),n(book)),vp(pp(prep(in),np(ap(det(a),ap(adj(light),adj(green))),n(house)))))))
+s(np(det(the),np(ap(adv(very),adj(beautiful)),n(girl))),vp(adv(always),v(reads),vp(np(ap(det(the),adj(heavy)),n(book)),vp(pp(prep(in),np(ap(det(a),ap(adj(light),adj(green))),n(house)))))))
+
+?- parse_sentence([the, very, long, girl, fully, loves, the, red, books]).
+Possible parsing versions:
+s(np(ap(det(the),adv(very),adj(long)),n(girl)),vp(adv(fully),v(loves),np(ap(det(the),adj(red)),n(books))))
+s(np(det(the),np(ap(adv(very),adj(long)),n(girl))),vp(adv(fully),v(loves),np(ap(det(the),adj(red)),n(books))))
+
+?- parse_sentence([the, very, beautiful, girl, always, reads, the, heavy, book, in, a,  light, green, house]).
+?- parse_sentence([the, very, beautiful, girl, always, reads, the, heavy, book, in, a, light, green, house, for, a, long, long, time]).
+?- parse_sentence([the, very, beautiful, girl, always, reads, the, heavy, book, in, a, very, light, green, house, for, a, long, long, time]).
+?- parse_sentence([the, very, beautiful, girl, always, reads, the, heavy, book, with, her, big, dog, in, a, very, light, green, house, for, a, long, long, time]).
+?- parse_sentence([the, very, beautiful, girl, always, reads, the, heavy, book, with, her, big, black, dog, in, a, very, light, green, house, for, a, long, long, time]).
+
+
+Incorrect Sentences
+================================================================================================
+?- parse_sentence([he, carefully, reads, a, book, about]).          // After determiner "about" must be noun
+This sentence is not correct
+
+?- parse_sentence([a, girls, loves, the, boy]).                     // "a" is singular determiner
+This sentence is not correct
+
+?- parse_sentence([i, love, his, a, cool, laptops]).                // "a" is singular determiner
+This sentence is not correct
+
+?- parse_sentence([cool, wind, blows, from, the, east]).            // Needs determiner before "cool"
+This sentence is not correct
+
+?- parse_sentence([a, little, boy, played, with, a, dog, in, the, garden, for, a, long, time]).
+This sentence is not Correct                                        // The program does not support past form
+
+?- parse_sentence([the, very, beautiful, green, red, girl, always, reads,the,  books, in, a,  house]).
+This sentence is not correct                                        // "The" is singular determiner
+
+?- parse_sentence([the, very, beautiful, green, red, girl, always, finaly, carefully, reads, the,  book, in, a,  house]).
+This sentence is not correct                                        // Must be exactly 1 adverb for verb
+
+?- parse_sentence([the, girl, always, carefully, reads ,the, heavy, book]).
+This sentence is not correct                                        // Must be exactly 1 adverb for verb
+
+?- parse_sentence([the, very, beautiful, girl, always, reads,the, heavy, book, in, a,  light, green, house, the, book, in, house]).
+This sentence is not correct                                        // Wrong usage of preposition phrase
