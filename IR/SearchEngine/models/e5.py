@@ -1,7 +1,7 @@
 from sentence_transformers import SentenceTransformer
-from utils import Utils
+from model import Model
 
-class E5(Utils):
+class E5(Model):
     def __init__(self):
         pass
 

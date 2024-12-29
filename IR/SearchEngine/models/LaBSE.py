@@ -1,8 +1,7 @@
 from sentence_transformers import SentenceTransformer
-import numpy as np
-from utils import Utils
+from model import Model
 
-class LaBSE(Utils):
+class LaBSE(Model):
     def __init__(self):
         super().__init__()
         pass
